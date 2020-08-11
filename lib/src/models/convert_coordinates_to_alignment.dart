@@ -16,17 +16,12 @@ import 'package:flutter/material.dart';
 ///      height: 50.0,
 ///      color: Colors.blue,
 ///    ),
-///    onTapUp: (TapUpDetails details) {
-///      var _alignment = CoordinatesToAlignment(
-///        point: Offset(
-///          details.globalPosition.dx,
-///          details.globalPosition.dy,
-///        ),
-///        screenSize: Size(
-///          MediaQuery.of(context).size.width,
-///          MediaQuery.of(context).size.height,
-///        ),
-///      ).convert();
+///    onTapUp: (TapUpDetails tapDetails) {
+///      final _converter = CoordinatesToAlignment(
+///        point: tapDetails.globalPosition,
+///        screenSize: MediaQuery.of(context).size,
+///      );
+///      final _alignment = _converter.convert();
 ///
 ///      print('Coordinates have been converted into Alignment');
 ///      print('Alignment.x = ' + _alignment.x?.toString());
@@ -43,17 +38,11 @@ class CoordinatesToAlignment {
   final Size screenSize;
 
   /// Creates a [CoordinatesToAlignment]
-  CoordinatesToAlignment({
+  const CoordinatesToAlignment({
     @required this.point,
     @required this.screenSize,
-  })  : assert(screenSize != null && screenSize.width > 0),
-        assert(screenSize != null && screenSize.height > 0),
-        assert(point != null &&
-            point.dx != null &&
-            point.dx.abs() <= (screenSize.width / 2)),
-        assert(point != null &&
-            point.dy != null &&
-            point.dy.abs() <= (screenSize.height / 2));
+  })  : assert(screenSize != null),
+        assert(point != null);
 
   double get _alignmentX => point.dx / (screenSize.width / 2) - 1;
   double get _alignmentY => point.dy / (screenSize.height / 2) - 1;

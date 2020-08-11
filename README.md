@@ -7,39 +7,15 @@
 
 # OPopup
 
-An overlaid content, which closes itself into opening place (on back button) or into the position where the pointer contacted the screen. It means, popup supports gestures.
+An overlaid content, which closes itself into opening place (on back button) or into the position where the pointer contacted the screen. It means, popup supports tap gesture!
 
 <img src="https://raw.githubusercontent.com/owczaro/o_popup/master/example/o_popup_demo.gif" height="500">
 
 
-## Add to your Flutter project
-
-You just need to add `o_popup` as a dependency [in your `pubspec.yaml` file](https://flutter.io/using-packages/):
-```yaml
-dependencies:
-  o_popup: ^0.1.1
-```
-
-
 ## Implementation
 
-In file, where you want to use popup, import required file:
-```dart
-import 'package:o_popup/o_popup.dart';
-```
+Visit [pub.dev -> install](https://pub.dev/packages/o_popup/install) and [pub.dev -> example](https://pub.dev/packages/o_popup/example).
 
-Place `PopupTrigger` wherever you want
-```dart
-OPopupTrigger(
-  barrierDismissible: false, // by default barrier is dismissible, you can change it though
-  barrierColor: Colors.black.withOpacity(0.1), // control over color and opacity of a barrier
-  barrierAnimationDuration: const Duration(milliseconds: 150), // control over barrier animation
-  triggerWidget: Text('Some text'), // or any [Widget]
-  popupContent: OPopupContent.standardizedText( // or any [Widget]
-    'Some content',
-  ),
-)
-```
 
 
 ## Commercial Use

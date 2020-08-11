@@ -68,7 +68,7 @@ class OPopupOverlay extends PopupRoute {
         child: content,
       ),
       onTapUp: (details) => dismissible ? tapDetails = details : null,
-      onTap: () => Navigator.of(context).pop(),
+      onTap: () => dismissible ? Navigator.of(context).pop() : null,
     );
   }
 
@@ -83,16 +83,11 @@ class OPopupOverlay extends PopupRoute {
   ) {
     var _alignment = Alignment(0, 0);
     if (tapDetails != null) {
-      _alignment = CoordinatesToAlignment(
-        point: Offset(
-          tapDetails.globalPosition.dx,
-          tapDetails.globalPosition.dy,
-        ),
-        screenSize: Size(
-          MediaQuery.of(context).size.width,
-          MediaQuery.of(context).size.height,
-        ),
-      ).convert();
+      final _converter = CoordinatesToAlignment(
+        point: tapDetails.globalPosition,
+        screenSize: MediaQuery.of(context).size,
+      );
+      _alignment = _converter.convert();
     }
     return FadeTransition(
       opacity: animation,

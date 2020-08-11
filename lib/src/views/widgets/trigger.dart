@@ -83,11 +83,9 @@ class _OPopupTriggerState extends State<OPopupTrigger> {
   @override
   Widget build(BuildContext context) => GestureDetector(
         child: widget.triggerWidget,
-        onTapUp: (details) => widget.barrierDismissible
-            ? setState(() {
-                openingTapDetails = details;
-              })
-            : null,
+        onTapUp: (details) => setState(() {
+          openingTapDetails = details;
+        }),
         onTap: () => Navigator.of(context).push(_popup(openingTapDetails)),
       );
 

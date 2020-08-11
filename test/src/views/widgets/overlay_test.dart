@@ -91,10 +91,11 @@ void main() {
 
       await OTestGestures.doTapUp(tester, const Offset(12.12, 13.13));
 
-      final closingAlignment = CoordinatesToAlignment(
-        screenSize: const Size(100.0, 100.0),
-        point: const Offset(12.12, 13.13),
-      ).convert();
+      final _converter = const CoordinatesToAlignment(
+        screenSize: Size(100.0, 100.0),
+        point: Offset(12.12, 13.13),
+      );
+      final closingAlignment = _converter.convert();
 
       await tester.pump(const Duration(milliseconds: 1));
 
