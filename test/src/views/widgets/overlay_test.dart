@@ -12,7 +12,7 @@ import '../../../helpers/gestures.dart';
 
 void main() {
   group('[Views/Widgets] OPopupOverlay', () {
-    testWidgets('custom barrierCurve', (WidgetTester tester) async {
+    testWidgets('custom barrierCurve', (tester) async {
       tester.binding.window.physicalSizeTestValue = const Size(100.0, 100.0);
       tester.binding.window.devicePixelRatioTestValue = 1.0;
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
@@ -22,9 +22,9 @@ void main() {
         MaterialApp(
           home: Material(
             child: Builder(
-              builder: (BuildContext context) {
+              builder: (context) {
                 return Center(
-                  child: ElevatedButton(
+                  child: RaisedButton(
                     child: const Text('X'),
                     onPressed: () {
                       Navigator.of(context).push<void>(
@@ -52,7 +52,7 @@ void main() {
 
       await tester.tap(find.text('X'));
       await tester.pump();
-      final Finder animatedModalBarrier = find.byType(AnimatedModalBarrier);
+      final animatedModalBarrier = find.byType(AnimatedModalBarrier);
       expect(animatedModalBarrier, findsOneWidget);
 
       Animation<Color> modalBarrierAnimation;
@@ -98,8 +98,8 @@ void main() {
 
       await tester.pump(const Duration(milliseconds: 1));
 
-      final Finder transition = find.byType(ScaleTransition);
-      Alignment modalBarrierAlignment =
+      final transition = find.byType(ScaleTransition);
+      var modalBarrierAlignment =
           tester.widget<ScaleTransition>(transition).alignment;
       expect(modalBarrierAlignment.x, equals(closingAlignment.x));
       expect(modalBarrierAlignment.y, equals(closingAlignment.y));

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// A grid of popup content. It keeps each part of popup on a proper place:
+/// A grid of popup content. It keeps each part of popup in a proper place:
 /// * header, content and action row are centered
 /// * each part is limited proportionally
 ///   * width: max device width minus 20px
@@ -9,14 +9,21 @@ import 'package:flutter/material.dart';
 ///     - content: 2/3 of max device height minus 100px
 ///     - actionRow: all space left
 /// * content is scrollable vertically
-/// You have to set at least one of the fields: header, content or actionRow.
+///
+/// At least one of the fields must be set: header, content or actionRow.
 
 class OPopupContent extends StatelessWidget {
+  /// Popup header.
   final Widget header;
+
+  /// Popup content.
   final Widget content;
+
+  /// Popup actionRow.
   final Widget actionRow;
 
-  OPopupContent({
+  /// Creates an instance of [OPopupContent]
+  const OPopupContent({
     this.header,
     this.content,
     this.actionRow,
@@ -43,7 +50,8 @@ class OPopupContent extends StatelessWidget {
     );
   }
 
-  /// You can use this method to create unified headers in all popups
+  /// Creates unified (color: [Colors.white], fontWeight: [FontWeight.bold])
+  /// headers inside [OPopupContent.standardizedText].
   static Widget standardizedHeader(String headerText) => standardizedText(
         headerText,
         style: TextStyle(
@@ -52,7 +60,8 @@ class OPopupContent extends StatelessWidget {
         ),
       );
 
-  /// You can use this method to create unified text content in all popups
+  /// Creates unified (color: [Colors.white], textAlign: [TextAlign.center])
+  /// text inside [Scrollbar].
   static Widget standardizedText(
     String text, {
     TextStyle style,

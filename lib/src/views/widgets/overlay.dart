@@ -2,35 +2,36 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-import 'package:o_popup/src/models/convert_coordinates_to_alignment.dart';
-import 'package:o_popup/src/views/widgets/modal_barrier_gesture_detector.dart';
-import 'package:o_popup/src/views/widgets/overlay_entry_extension.dart';
+import '../../models/convert_coordinates_to_alignment.dart';
+import 'modal_barrier_gesture_detector.dart';
+import 'overlay_entry_extension.dart';
 
-/// This class represents a popup barrier.
+/// A modal route that overlays a widget over the current route.
 /// It adds an ability to save tap details in order to close popup
 /// into tapped place.
 ///
-/// Content parameter is everything you want to show inside popup.
-/// You can use OPopupContent class here.
-///
-/// Color is a barrier color. By default it is Colors.black.withOpacity(0.7)
-///
-/// BarrierAnimationDuration is a duration of open/close animation.
-///
-/// Dismissible - if sets to true, you can dismiss a popup by tapping a barrier.
-///
-/// TapDetails - you can pass details of tapped place which triggered to
-/// open a popup. You can provide that with [GestureDetector].
-/// If you don't provide that parameter, popup closes into the center of a screen.
 /// You can also use [OPopupTrigger] in order to handle everything.
 
 class OPopupOverlay extends PopupRoute {
+  ///  Everything you want to show inside a popup. You can use [OPopupContent].
   final Widget content;
+
+  /// Fill the barrier with this color.
   final Color color;
+
+  /// The duration the transition going forwards and in reverse.
   final Duration barrierAnimationDuration;
+
+  /// Whether you can dismiss this route by tapping the modal barrier.
   final bool dismissible;
+
+  /// The global position at which the pointer contacted the screen.
+  /// If null, transition animation has Alignment(0, 0),
+  /// so that transition going forwards/ in reverse
+  /// goes from/into the center of a screen.
   TapUpDetails tapDetails;
 
+  /// Creates an instance of [OPopupOverlay]
   OPopupOverlay({
     this.dismissible = true,
     this.color,
@@ -66,14 +67,13 @@ class OPopupOverlay extends PopupRoute {
         type: MaterialType.transparency,
         child: content,
       ),
-      onTapUp: (TapUpDetails details) =>
-          dismissible ? tapDetails = details : null,
+      onTapUp: (details) => dismissible ? tapDetails = details : null,
       onTap: () => Navigator.of(context).pop(),
     );
   }
 
-  /// Creates opening animation which starts at tapped coordinates.
-  /// Closing animation closes into tapped coordinates.
+  /// Creates transition which going forwards from tapped coordinates.
+  /// A similar situation is with transition in reverse.
   @override
   Widget buildTransitions(
     BuildContext context,
@@ -104,7 +104,7 @@ class OPopupOverlay extends PopupRoute {
     );
   }
 
-  /// Updates tapDetails when user taps an barrier.
+  /// Updates tapDetails when user taps the barrier.
   @override
   Iterable<OverlayEntry> createOverlayEntries() sync* {
     var entries = super.createOverlayEntries();
@@ -113,7 +113,7 @@ class OPopupOverlay extends PopupRoute {
         var widgetBuilder = Builder(builder: (context) {
           return OModalBarrierGestureDetector(
             child: entry.builder(context),
-            onTapUp: (TapUpDetails details) {
+            onTapUp: (details) {
               if (dismissible) {
                 tapDetails = details;
                 Navigator.of(context).pop();

@@ -1,16 +1,14 @@
-import 'package:o_popup/o_popup.dart';
-import 'package:o_popup/src/views/widgets/overlay.dart';
 import 'package:flutter/material.dart';
 
-/// That widget is kinda helper, which simplifies the process of creating
-/// a widget which triggers popup.
+import '../../../o_popup.dart';
+import 'overlay.dart';
+
+/// It simplifies the process of creating a widget which triggers popup.
 ///
-/// TriggerWidget is required.
-/// Also one of following: popupHeader, popupContent, popupActionRow.
 ///
+/// Typical usage is as follows:
 ///
-/// Example:
-///
+/// ```dart
 /// OPopupTrigger(
 ///    barrierDismissible: false, // by default barrier is dismissible, you can change it though
 ///    barrierColor: Colors.black.withOpacity(0.1), // control over color and opacity of a barrier
@@ -35,17 +33,32 @@ import 'package:flutter/material.dart';
 ///        ),
 ///      ],
 ///    ),
-/// )
+/// );
+/// ```
 
 class OPopupTrigger extends StatefulWidget {
+  /// Widget which fires popup.
   final Widget triggerWidget;
+
+  /// Popup header.
   final Widget popupHeader;
+
+  /// Popup content.
   final Widget popupContent;
+
+  /// Popup action row.
   final Widget popupActionRow;
+
+  /// Fill the barrier with this color.
   final Color barrierColor;
+
+  /// Whether you can dismiss popup route by tapping the modal barrier.
   final bool barrierDismissible;
+
+  /// The duration the transition of popup going forwards and in reverse.
   final Duration barrierAnimationDuration;
 
+  /// Creates an instance of [OPopupTrigger]
   const OPopupTrigger({
     Key key,
     @required this.triggerWidget,
@@ -70,7 +83,7 @@ class _OPopupTriggerState extends State<OPopupTrigger> {
   @override
   Widget build(BuildContext context) => GestureDetector(
         child: widget.triggerWidget,
-        onTapUp: (TapUpDetails details) => widget.barrierDismissible
+        onTapUp: (details) => widget.barrierDismissible
             ? setState(() {
                 openingTapDetails = details;
               })

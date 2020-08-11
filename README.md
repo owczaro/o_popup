@@ -1,17 +1,15 @@
-# OPopup
-
-
-<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-brightgreen.svg" alt="License: MIT"></a>
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-yellow.svg" alt="License: MIT"></a>
+<a href="https://github.com/tenhobi/effective_dart"><img src="https://img.shields.io/badge/style-effective_dart-blue.svg" alt="style: effective dart"></a>
 <a href="https://travis-ci.org/github/owczaro/o_popup"><img src="https://travis-ci.org/owczaro/o_popup.svg?branch=master" alt="Travis CI"></a>
 
 ---
 
 
-## Introduction
+# OPopup
 
-Overlaid content, which closes itself into opening place (on back button) or into the position where the pointer contacted the screen. You can create simple popup with or without header, content and action row.
+An overlaid content, which closes itself into opening place (on back button) or into the position where the pointer contacted the screen. It means, popup supports gestures.
 
-<img src="https://github.com/owczaro/o_popup/blob/master/example/o_popup_demo.gif" height="500">
+<img src="https://raw.githubusercontent.com/owczaro/o_popup/master/example/o_popup_demo.gif" height="500">
 
 
 ## Add to your Flutter project

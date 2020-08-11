@@ -8,8 +8,8 @@ import '../../../helpers/gestures.dart';
 
 void main() {
   group('[Views/Widgets] OModalBarrierGestureDetector', () {
-    testWidgets('Detects onTapUp', (WidgetTester tester) async {
-      int tapUpCount = 0;
+    testWidgets('Detects onTapUp', (tester) async {
+      var tapUpCount = 0;
 
       final tapWidgetKey = UniqueKey();
 
@@ -27,7 +27,7 @@ void main() {
                 color: Colors.red,
                 key: tapWidgetKey,
               ),
-              onTapUp: (TapUpDetails details) {
+              onTapUp: (details) {
                 tapUpCount += 1;
               },
             ),

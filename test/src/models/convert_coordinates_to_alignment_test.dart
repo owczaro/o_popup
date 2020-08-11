@@ -10,8 +10,8 @@ void main() {
   group('[Models] CoordinatesToAlignment', () {
     final screenSize = const Size(400.0, 600.0);
     test(
-        'Device size (W x H): 400 x 600, and pointer position [(x; y)]: (2.0; -14.0)',
-        () {
+        'Device size (W x H): 400 x 600 '
+        'and pointer position [(x; y)]: (2.0; -14.0)', () {
       final alignment = CoordinatesToAlignment(
         screenSize: screenSize,
         point: const Offset(2.0, -14.0),
@@ -21,8 +21,8 @@ void main() {
     });
 
     test(
-        'Device size (W x H): 400 x 600, and pointer position [(x; y)]: (200.0; 200.0)',
-        () {
+        'Device size (W x H): 400 x 600 '
+        'and pointer position [(x; y)]: (200.0; 200.0)', () {
       final alignment = CoordinatesToAlignment(
         screenSize: screenSize,
         point: const Offset(200.0, 200.0),
@@ -32,8 +32,8 @@ void main() {
     });
 
     test(
-        'Device size (W x H): 400 x 600, and pointer position [(x; y)]: (0.0; 0.0)',
-        () {
+        'Device size (W x H): 400 x 600 '
+        'and pointer position [(x; y)]: (0.0; 0.0)', () {
       final alignment = CoordinatesToAlignment(
         screenSize: screenSize,
         point: const Offset(0.0, 0.0),

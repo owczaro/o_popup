@@ -8,7 +8,7 @@ void main() {
   group(
     '[Views/Widgets] OPopupContent',
     () {
-      testWidgets('Has all fields', (WidgetTester tester) async {
+      testWidgets('Has all fields', (tester) async {
         final testWidget = MediaQuery(
           data: MediaQueryData(),
           child: MaterialApp(
@@ -35,7 +35,7 @@ void main() {
         expect(find.text('Action Button'), findsOneWidget);
       });
 
-      testWidgets('Has only header', (WidgetTester tester) async {
+      testWidgets('Has only header', (tester) async {
         final testWidget = MediaQuery(
           data: MediaQueryData(),
           child: MaterialApp(
@@ -50,7 +50,7 @@ void main() {
         expect(find.text('Test header'), findsOneWidget);
       });
 
-      testWidgets('Has only content', (WidgetTester tester) async {
+      testWidgets('Has only content', (tester) async {
         final testWidget = MediaQuery(
           data: MediaQueryData(),
           child: MaterialApp(
@@ -65,7 +65,7 @@ void main() {
         expect(find.text('Some content'), findsOneWidget);
       });
 
-      testWidgets('Has only action row', (WidgetTester tester) async {
+      testWidgets('Has only action row', (tester) async {
         final testWidget = MediaQuery(
           data: MediaQueryData(),
           child: MaterialApp(
@@ -89,7 +89,7 @@ void main() {
       });
 
       testWidgets('Throws an assertion error with no arguments',
-          (WidgetTester tester) async {
+          (tester) async {
         final widgetKey = UniqueKey();
         try {
           MediaQuery(
@@ -99,6 +99,7 @@ void main() {
             ),
           );
           expect(false, isTrue);
+          // ignore: avoid_catches_without_on_clauses
         } catch (e) {
           expect(e, isAssertionError);
         }

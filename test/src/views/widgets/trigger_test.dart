@@ -10,7 +10,7 @@ import '../../../helpers/gestures.dart';
 
 void main() {
   group('[Views/Widgets] OPopupTrigger', () {
-    testWidgets('Works correctly', (WidgetTester tester) async {
+    testWidgets('Works correctly', (tester) async {
       tester.binding.window.physicalSizeTestValue = const Size(800.0, 800.0);
       tester.binding.window.devicePixelRatioTestValue = 1.0;
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
@@ -21,7 +21,7 @@ void main() {
         MaterialApp(
           home: Material(
             child: Builder(
-              builder: (BuildContext context) {
+              builder: (context) {
                 return OPopupTrigger(
                   key: popupKey,
                   barrierDismissible: false,
@@ -60,7 +60,7 @@ void main() {
       // barrierAnimationDuration: 150 ms
       await tester.pump(const Duration(milliseconds: 1));
 
-      final Finder animatedModalBarrier = find.byType(AnimatedModalBarrier);
+      final animatedModalBarrier = find.byType(AnimatedModalBarrier);
       Animation<Color> modalBarrierAnimation;
       modalBarrierAnimation =
           tester.widget<AnimatedModalBarrier>(animatedModalBarrier).color;
