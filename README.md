@@ -17,7 +17,7 @@ An overlaid content, which closes itself into opening place (on back button) or 
 You just need to add `o_popup` as a dependency [in your `pubspec.yaml` file](https://flutter.io/using-packages/):
 ```yaml
 dependencies:
-  o_popup: ^0.1.0
+  o_popup: ^0.1.1
 ```
 
 
