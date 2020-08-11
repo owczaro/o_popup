@@ -1,7 +1,6 @@
 name: o_popup
 description: An overlaid content, which closes itself into opening place (on back button) or into the position where the pointer contacted the screen.
 version: 0.1.0
-author: Lukasz Owczarczuk
 homepage: https://github.com/owczaro/o_popup
 issue_tracker: https://github.com/owczaro/o_popup/issues
 
@@ -12,7 +11,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  pedantic: ^1.9.2
 
 dev_dependencies:
   flutter_test:

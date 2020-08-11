@@ -11,7 +11,7 @@
 
 Overlaid content, which closes itself into opening place (on back button) or into the position where the pointer contacted the screen. You can create simple popup with or without header, content and action row.
 
-<img src="/example/o_popup_demo.gif" height="500">
+<img src="https://github.com/owczaro/o_popup/blob/master/example/o_popup_demo.gif" height="500">
 
 
 ## Add to your Flutter project
