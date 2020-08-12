@@ -17,7 +17,6 @@ An overlaid content, which closes itself into opening place (on back button) or 
 Visit [pub.dev -> install](https://pub.dev/packages/o_popup/install) and [pub.dev -> example](https://pub.dev/packages/o_popup/example).
 
 
-
 ## Commercial Use
 
 If you use this code in commercial project, please donate me via GitHub Sponsors. I do the same for packages which I use, because it ensures stable development for all of us!
