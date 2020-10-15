@@ -35,7 +35,6 @@ import 'overlay.dart';
 ///    ),
 /// );
 /// ```
-
 class OPopupTrigger extends StatefulWidget {
   /// Widget which fires popup.
   final Widget triggerWidget;
