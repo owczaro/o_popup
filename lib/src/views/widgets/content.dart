@@ -11,7 +11,6 @@ import 'package:flutter/material.dart';
 /// * content is scrollable vertically
 ///
 /// At least one of the fields must be set: header, content or actionRow.
-
 class OPopupContent extends StatelessWidget {
   /// Popup header.
   final Widget header;
@@ -32,23 +31,21 @@ class OPopupContent extends StatelessWidget {
         super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        if (header != null) ...{
-          _header(context),
-        },
-        if (content != null) ...{
-          _content(context),
-        },
-        if (actionRow != null) ...{
-          _actionRow(),
-        },
-      ],
-    );
-  }
+  Widget build(BuildContext context) => Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          if (header != null) ...{
+            _header(context),
+          },
+          if (content != null) ...{
+            _content(context),
+          },
+          if (actionRow != null) ...{
+            _actionRow(),
+          },
+        ],
+      );
 
   /// Creates unified (color: [Colors.white], fontWeight: [FontWeight.bold])
   /// headers inside [OPopupContent.standardizedText].

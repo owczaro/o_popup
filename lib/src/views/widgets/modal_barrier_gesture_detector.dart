@@ -2,7 +2,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 /// A smaller version of [GestureDetector]. It detects only tapUp event.
-
 class OModalBarrierGestureDetector extends StatelessWidget {
   /// The widget below this widget in the tree.
   final Widget child;

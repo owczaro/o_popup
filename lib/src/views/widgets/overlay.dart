@@ -11,8 +11,7 @@ import 'overlay_entry_extension.dart';
 /// into tapped place.
 ///
 /// You can also use [OPopupTrigger] in order to handle everything.
-
-class OPopupOverlay extends PopupRoute {
+class OPopupOverlay<T> extends PopupRoute<T> {
   ///  Everything you want to show inside a popup. You can use [OPopupContent].
   final Widget content;
 
@@ -60,17 +59,16 @@ class OPopupOverlay extends PopupRoute {
     BuildContext context,
     Animation<double> animation,
     Animation<double> secondaryAnimation,
-  ) {
-    return GestureDetector(
-      excludeFromSemantics: true,
-      child: Material(
-        type: MaterialType.transparency,
-        child: content,
-      ),
-      onTapUp: (details) => dismissible ? tapDetails = details : null,
-      onTap: () => dismissible ? Navigator.of(context).pop() : null,
-    );
-  }
+  ) =>
+      GestureDetector(
+        excludeFromSemantics: true,
+        child: Material(
+          type: MaterialType.transparency,
+          child: content,
+        ),
+        onTapUp: (details) => dismissible ? tapDetails = details : null,
+        onTap: () => dismissible ? Navigator.of(context).pop() : null,
+      );
 
   /// Creates transition which going forwards from tapped coordinates.
   /// A similar situation is with transition in reverse.

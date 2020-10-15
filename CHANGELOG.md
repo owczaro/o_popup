@@ -1,3 +1,9 @@
+## [0.1.3] - 15th of October 2020
+
+- Upgrade dependencies
+- Add generic parameter to [OPopupOverlay]
+- Improve documentation
+
 ## [0.1.2] - 12th of August 2020
 
 Adjust [CoordinatesToAlignment] to real situations.
