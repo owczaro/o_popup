@@ -26,7 +26,7 @@ or by tapping anywhere on a screen.
 In the `OPopupTrigger` class you can also set `barrierDismissible`
 to `false` (to prevent dismissing popup by taping anywhere)
 and for example create a button,
-which pops `Navigator` (`Navigator.of(context).pop()`)
+which pops the popup from `Navigator` stack (`Navigator.of(context).pop()`)
 in order to close the popup - like buttons in [the example](https://github.com/owczaro/o_popup/blob/master/example/lib/demo.dart).
 
 
