@@ -39,8 +39,8 @@ size, alignment etc.
 
 You can also overwrite `OPopupContent` (create a class which extends `OPopupContent`),
 customize it inside your own class and set your version of `OPopupContent`
-to `popupContent` field of `OPopupTrigger`
-(and do not set `popupHeader` and `popupActionRow` in order to omit original `OPopupContent`).
+to `OPopupTrigger.popupContent`
+(also do not set `popupHeader` and `popupActionRow` in order to omit original `OPopupContent`).
 
 ## Documentation
 
