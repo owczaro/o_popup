@@ -1,3 +1,8 @@
+## [0.1.4] - 16th of October 2020
+
+- Add an ability to fully customize content of popup
+by conditionally omitting [OPopupContent] class in [OPopupTrigger]
+
 ## [0.1.3] - 15th of October 2020
 
 - Upgrade dependencies
