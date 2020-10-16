@@ -30,6 +30,18 @@ which pops the popup from `Navigator` stack (`Navigator.of(context).pop()`)
 in order to close the popup - like buttons in [the example](https://github.com/owczaro/o_popup/blob/master/example/lib/demo.dart).
 
 
+## Customization
+
+If you do not want to use `OPopupContent` class as a content of a popup triggered by `OPopupTrigger`
+you should skip `popupHeader` and `popupActionRow` fields and set your own widget to
+`popupContent` field. It gives you an ability to fully customize the content of the popup:
+size, alignment etc.
+
+You can also overwrite `OPopupContent` (create a class which extends `OPopupContent`),
+customize it inside your own class and set your version of `OPopupContent`
+to `popupContent` field of `OPopupTrigger`
+(and do not set `popupHeader` and `popupActionRow` in order to omit original `OPopupContent`).
+
 ## Documentation
 
 Extended documentation is available [on pub.dev](https://pub.dev/documentation/o_popup/latest/o_popup/o_popup-library.html).

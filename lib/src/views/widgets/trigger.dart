@@ -6,6 +6,9 @@ import 'overlay.dart';
 /// It simplifies the process of creating a widget which triggers popup.
 ///
 ///
+/// If you want to fully customize (for example size, alignment)
+/// content of a popup, skip `popupHeader` and `popupActionRow` fields
+/// and set your own widget to `popupContent` field.
 /// Typical usage is as follows:
 ///
 /// ```dart
@@ -93,10 +96,18 @@ class _OPopupTriggerState extends State<OPopupTrigger> {
         barrierAnimationDuration: widget.barrierAnimationDuration,
         tapDetails: openingTapDetails,
         color: widget.barrierColor,
-        content: OPopupContent(
-          header: widget.popupHeader,
-          content: widget.popupContent,
-          actionRow: widget.popupActionRow,
-        ),
+        content: _omitOPopupContent
+            ? widget.popupContent
+            : OPopupContent(
+                header: widget.popupHeader,
+                content: widget.popupContent,
+                actionRow: widget.popupActionRow,
+              ),
       );
+
+  /// Whether [OPopupContent] should be used or not.
+  bool get _omitOPopupContent =>
+      widget.popupHeader == null &&
+      widget.popupActionRow == null &&
+      widget.popupContent != null;
 }

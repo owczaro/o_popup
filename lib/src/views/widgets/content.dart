@@ -36,13 +36,13 @@ class OPopupContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           if (header != null) ...{
-            _header(context),
+            headerBuilder(context),
           },
           if (content != null) ...{
-            _content(context),
+            contentBuilder(context),
           },
           if (actionRow != null) ...{
-            _actionRow(),
+            actionRowBuilder(context),
           },
         ],
       );
@@ -71,7 +71,9 @@ class OPopupContent extends StatelessWidget {
         ),
       );
 
-  Widget _header(BuildContext context) => Padding(
+  /// Builds header inside [LimitedBox]. You can overwrite this method
+  /// if you want to customize header.
+  Widget headerBuilder(BuildContext context) => Padding(
         padding: EdgeInsets.all(10.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -88,7 +90,9 @@ class OPopupContent extends StatelessWidget {
         ),
       );
 
-  Widget _content(BuildContext context) => Padding(
+  /// Builds content inside [LimitedBox]. You can overwrite this method
+  /// if you want to customize content.
+  Widget contentBuilder(BuildContext context) => Padding(
         padding: EdgeInsets.all(10.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -105,7 +109,9 @@ class OPopupContent extends StatelessWidget {
         ),
       );
 
-  Widget _actionRow() => Padding(
+  /// Builds action row. You can overwrite this method
+  /// if you want to customize action row.
+  Widget actionRowBuilder(BuildContext context) => Padding(
         padding: EdgeInsets.all(10.0),
         child: actionRow,
       );
