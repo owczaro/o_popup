@@ -39,10 +39,9 @@ class CoordinatesToAlignment {
 
   /// Creates a [CoordinatesToAlignment]
   const CoordinatesToAlignment({
-    @required this.point,
-    @required this.screenSize,
-  })  : assert(screenSize != null),
-        assert(point != null);
+    required this.point,
+    required this.screenSize,
+  });
 
   double get _alignmentX => point.dx / (screenSize.width / 2) - 1;
   double get _alignmentY => point.dy / (screenSize.height / 2) - 1;

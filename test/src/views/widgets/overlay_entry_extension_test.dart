@@ -11,19 +11,19 @@ void main() {
     builder: (context) => Text('Test 1'),
   );
 
-  group('[Views/Widgets] copyingOverlayEntry.copyWith: maintainState', () {
-    final copyWithMaintainState =
-        originalOverlay.copyWith(maintainState: false);
+  group('[Views/Widgets] copyingOverlayEntry.copyWith: builder', () {
+    final copyWithBuilder =
+        originalOverlay.copyWith(builder: (context) => Text('Test builder 1'));
     testWidgets('builder', (tester) async {
-      expect(copyWithMaintainState.builder, equals(originalOverlay.builder));
+      expect(copyWithBuilder.builder, isNot(equals(originalOverlay.builder)));
     });
     testWidgets('opaque', (tester) async {
-      expect(copyWithMaintainState.opaque, equals(originalOverlay.opaque));
+      expect(copyWithBuilder.opaque, equals(originalOverlay.opaque));
     });
     testWidgets('maintainState', (tester) async {
       expect(
-        copyWithMaintainState.maintainState,
-        isNot(equals(originalOverlay.maintainState)),
+        copyWithBuilder.maintainState,
+        equals(originalOverlay.maintainState),
       );
     });
   });
@@ -41,6 +41,23 @@ void main() {
       expect(
         copyWithOpaque.maintainState,
         equals(originalOverlay.maintainState),
+      );
+    });
+  });
+
+  group('[Views/Widgets] copyingOverlayEntry.copyWith: maintainState', () {
+    final copyWithMaintainState =
+        originalOverlay.copyWith(maintainState: false);
+    testWidgets('builder', (tester) async {
+      expect(copyWithMaintainState.builder, equals(originalOverlay.builder));
+    });
+    testWidgets('opaque', (tester) async {
+      expect(copyWithMaintainState.opaque, equals(originalOverlay.opaque));
+    });
+    testWidgets('maintainState', (tester) async {
+      expect(
+        copyWithMaintainState.maintainState,
+        isNot(equals(originalOverlay.maintainState)),
       );
     });
   });

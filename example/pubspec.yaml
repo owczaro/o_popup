@@ -1,7 +1,7 @@
 name: o_popup_example
 description: o_popup example app
 
-version: 0.1.0
+version: 1.0.0
 
 environment:
   sdk: ">=2.7.0 <3.0.0"

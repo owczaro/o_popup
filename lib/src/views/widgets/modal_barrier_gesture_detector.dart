@@ -12,12 +12,10 @@ class OModalBarrierGestureDetector extends StatelessWidget {
 
   /// Creates an instance of [OModalBarrierGestureDetector]
   const OModalBarrierGestureDetector({
-    Key key,
-    @required this.child,
-    @required this.onTapUp,
-  })  : assert(child != null),
-        assert(onTapUp != null),
-        super(key: key);
+    Key? key,
+    required this.child,
+    required this.onTapUp,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

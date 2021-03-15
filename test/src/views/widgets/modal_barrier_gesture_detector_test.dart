@@ -2,16 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:o_popup/src/views/widgets/modal_barrier_gesture_detector.dart';
 
-import '../../../helpers/gestures.dart';
-
 /// Tests [OModalBarrierGestureDetector]
 
 void main() {
   group('[Views/Widgets] OModalBarrierGestureDetector', () {
     testWidgets('Detects onTapUp', (tester) async {
       var tapUpCount = 0;
-
-      final tapWidgetKey = UniqueKey();
 
       await tester.pumpWidget(
         Container(
@@ -25,7 +21,6 @@ void main() {
                 width: 10.0,
                 height: 10.0,
                 color: Colors.red,
-                key: tapWidgetKey,
               ),
               onTapUp: (details) {
                 tapUpCount += 1;
@@ -35,13 +30,13 @@ void main() {
         ),
       );
 
-      await OTestGestures.doTapUp(tester, const Offset(1.0, 1.0));
+      await tester.tapAt(const Offset(1.0, 1.0));
       expect(tapUpCount, 1);
 
-      await OTestGestures.doTapUp(tester, const Offset(11.0, 11.0));
+      await tester.tapAt(const Offset(11.0, 11.0));
       expect(tapUpCount, 1);
 
-      await OTestGestures.doTapUp(tester, const Offset(0.0, 0.0));
+      await tester.tapAt(const Offset(0.0, 0.0));
       expect(tapUpCount, 2);
     });
   });

@@ -6,9 +6,9 @@ extension CopyingOverlayEntry on OverlayEntry {
   /// Create a clone of the current [OverlayEntry] but with provided
   /// parameters overridden.
   OverlayEntry copyWith({
-    WidgetBuilder builder,
-    bool opaque,
-    bool maintainState,
+    WidgetBuilder? builder,
+    bool? opaque,
+    bool? maintainState,
   }) =>
       OverlayEntry(
         builder: builder ?? this.builder,

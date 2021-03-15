@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:o_popup/o_popup.dart';
 
-import '../../../helpers/gestures.dart';
-
 /// Tests [OPopupTrigger]
 
 void main() {
@@ -16,14 +14,12 @@ void main() {
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
       addTearDown(tester.binding.window.clearDevicePixelRatioTestValue);
 
-      final popupKey = GlobalKey();
       await tester.pumpWidget(
         MaterialApp(
           home: Material(
             child: Builder(
               builder: (context) {
                 return OPopupTrigger(
-                  key: popupKey,
                   barrierDismissible: false,
                   barrierColor: Colors.black.withOpacity(0.1),
                   barrierAnimationDuration: const Duration(milliseconds: 150),
@@ -36,13 +32,17 @@ void main() {
                     // or any [Widget]
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      OutlineButton(
-                        textColor: Colors.white,
+                      OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                          textStyle: TextStyle(color: Colors.white),
+                        ),
                         child: Text('Yes'),
                         onPressed: () => Navigator.of(context).pop(),
                       ),
-                      OutlineButton(
-                        textColor: Colors.white,
+                      OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                          textStyle: TextStyle(color: Colors.white),
+                        ),
                         child: Text('No'),
                         onPressed: () => Navigator.of(context).pop(),
                       ),
@@ -61,7 +61,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 1));
 
       final animatedModalBarrier = find.byType(AnimatedModalBarrier);
-      Animation<Color> modalBarrierAnimation;
+      Animation<Color?> modalBarrierAnimation;
       modalBarrierAnimation =
           tester.widget<AnimatedModalBarrier>(animatedModalBarrier).color;
 
@@ -82,7 +82,7 @@ void main() {
       expect(find.byType(OPopupContent), findsOneWidget);
 
       // Dismissible: false
-      await OTestGestures.doTapUp(tester, const Offset(1.0, 1.0));
+      await tester.tapAt(const Offset(1.0, 1.0));
       expect(animatedModalBarrier, findsOneWidget);
 
       // BarrierColor
@@ -95,14 +95,12 @@ void main() {
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
       addTearDown(tester.binding.window.clearDevicePixelRatioTestValue);
 
-      final popupKey = GlobalKey();
       await tester.pumpWidget(
         MaterialApp(
           home: Material(
             child: Builder(
               builder: (context) {
                 return OPopupTrigger(
-                  key: popupKey,
                   barrierDismissible: false,
                   barrierColor: Colors.black.withOpacity(0.1),
                   barrierAnimationDuration: const Duration(milliseconds: 150),
@@ -121,7 +119,7 @@ void main() {
       await tester.pump(const Duration(milliseconds: 1));
 
       final animatedModalBarrier = find.byType(AnimatedModalBarrier);
-      Animation<Color> modalBarrierAnimation;
+      Animation<Color?> modalBarrierAnimation;
       modalBarrierAnimation =
           tester.widget<AnimatedModalBarrier>(animatedModalBarrier).color;
 
@@ -139,7 +137,7 @@ void main() {
       expect(find.byType(OPopupContent), findsNothing);
 
       // Dismissible: false
-      await OTestGestures.doTapUp(tester, const Offset(1.0, 1.0));
+      await tester.tapAt(const Offset(1.0, 1.0));
       expect(animatedModalBarrier, findsOneWidget);
 
       // BarrierColor
