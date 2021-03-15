@@ -43,27 +43,27 @@ class OPopupTrigger extends StatefulWidget {
   final Widget triggerWidget;
 
   /// Popup header.
-  final Widget popupHeader;
+  final Widget? popupHeader;
 
   /// Popup content.
-  final Widget popupContent;
+  final Widget? popupContent;
 
   /// Popup action row.
-  final Widget popupActionRow;
+  final Widget? popupActionRow;
 
   /// Fill the barrier with this color.
-  final Color barrierColor;
+  final Color? barrierColor;
 
   /// Whether you can dismiss popup route by tapping the modal barrier.
   final bool barrierDismissible;
 
   /// The duration the transition of popup going forwards and in reverse.
-  final Duration barrierAnimationDuration;
+  final Duration? barrierAnimationDuration;
 
   /// Creates an instance of [OPopupTrigger]
   const OPopupTrigger({
-    Key key,
-    @required this.triggerWidget,
+    Key? key,
+    required this.triggerWidget,
     this.popupHeader,
     this.popupContent,
     this.popupActionRow,
@@ -80,7 +80,7 @@ class OPopupTrigger extends StatefulWidget {
 }
 
 class _OPopupTriggerState extends State<OPopupTrigger> {
-  TapUpDetails openingTapDetails;
+  TapUpDetails? openingTapDetails;
 
   @override
   Widget build(BuildContext context) => GestureDetector(
@@ -91,13 +91,13 @@ class _OPopupTriggerState extends State<OPopupTrigger> {
         onTap: () => Navigator.of(context).push(_popup(openingTapDetails)),
       );
 
-  OPopupOverlay _popup(TapUpDetails openingTapDetails) => OPopupOverlay(
+  OPopupOverlay _popup(TapUpDetails? openingTapDetails) => OPopupOverlay(
         dismissible: widget.barrierDismissible,
         barrierAnimationDuration: widget.barrierAnimationDuration,
         tapDetails: openingTapDetails,
         color: widget.barrierColor,
         content: _omitOPopupContent
-            ? widget.popupContent
+            ? widget.popupContent!
             : OPopupContent(
                 header: widget.popupHeader,
                 content: widget.popupContent,

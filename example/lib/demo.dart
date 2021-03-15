@@ -10,9 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'o_popup demo app',
-      routes: {
-        '/': (BuildContext context) => MyHomePage(),
-      },
+      home: MyHomePage(),
     );
   }
 }
@@ -51,13 +49,17 @@ class MyHomePage extends StatelessWidget {
         popupActionRow: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            OutlineButton(
-              textColor: Colors.white,
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                textStyle: TextStyle(color: Colors.white),
+              ),
               child: Text('Yes'),
               onPressed: () => Navigator.of(context).pop(),
             ),
-            OutlineButton(
-              textColor: Colors.white,
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                textStyle: TextStyle(color: Colors.white),
+              ),
               child: Text('No'),
               onPressed: () => Navigator.of(context).pop(),
             ),
@@ -83,13 +85,17 @@ class MyHomePage extends StatelessWidget {
         popupActionRow: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            OutlineButton(
-              textColor: Colors.white,
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                textStyle: TextStyle(color: Colors.white),
+              ),
               child: Text('Yes'),
               onPressed: () => Navigator.of(context).pop(),
             ),
-            OutlineButton(
-              textColor: Colors.white,
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                textStyle: TextStyle(color: Colors.white),
+              ),
               child: Text('No'),
               onPressed: () => Navigator.of(context).pop(),
             ),
@@ -113,13 +119,17 @@ class MyHomePage extends StatelessWidget {
         popupActionRow: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            OutlineButton(
-              textColor: Colors.white,
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                textStyle: TextStyle(color: Colors.white),
+              ),
               child: Text('Like'),
               onPressed: () => Navigator.of(context).pop(),
             ),
-            OutlineButton(
-              textColor: Colors.white,
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                textStyle: TextStyle(color: Colors.white),
+              ),
               child: Text('Dislike'),
               onPressed: () => Navigator.of(context).pop(),
             ),

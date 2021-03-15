@@ -55,5 +55,17 @@ void main() {
       expect(alignment.x, equals(1.0));
       expect(alignment.y, equals(1.0));
     });
+
+    test(
+        'Device size (W x H): 2 x 2 '
+        'and pointer position [(x; y)]: (0.1; 0.2)', () {
+      final converter = const CoordinatesToAlignment(
+        screenSize: Size(2.0, 2.0),
+        point: Offset(0.1, 0.2),
+      );
+      final alignment = converter.convert();
+      expect(alignment.x, equals(-0.9));
+      expect(alignment.y, equals(-0.8));
+    });
   });
 }

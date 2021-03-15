@@ -13,20 +13,20 @@ import 'package:flutter/material.dart';
 /// At least one of the fields must be set: header, content or actionRow.
 class OPopupContent extends StatelessWidget {
   /// Popup header.
-  final Widget header;
+  final Widget? header;
 
   /// Popup content.
-  final Widget content;
+  final Widget? content;
 
   /// Popup actionRow.
-  final Widget actionRow;
+  final Widget? actionRow;
 
   /// Creates an instance of [OPopupContent]
   const OPopupContent({
     this.header,
     this.content,
     this.actionRow,
-    Key key,
+    Key? key,
   })  : assert(header != null || content != null || actionRow != null),
         super(key: key);
 
@@ -61,7 +61,7 @@ class OPopupContent extends StatelessWidget {
   /// text inside [Scrollbar].
   static Widget standardizedText(
     String text, {
-    TextStyle style,
+    TextStyle? style,
   }) =>
       Scrollbar(
         child: Text(
@@ -102,7 +102,7 @@ class OPopupContent extends StatelessWidget {
               child: LimitedBox(
                 maxHeight: MediaQuery.of(context).size.height / 3 * 2 - 100.0,
                 maxWidth: MediaQuery.of(context).size.width - 20.0,
-                child: Scrollbar(child: content),
+                child: Scrollbar(child: content!),
               ),
             ),
           ],

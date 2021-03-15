@@ -1,3 +1,9 @@
+## [0.1.5] - 15th of March 2021
+
+- Null safety support
+- Add more tests
+- Upgrade `effective_dart` version
+
 ## [0.1.4] - 16th of October 2020
 
 - Add an ability to fully customize content of popup

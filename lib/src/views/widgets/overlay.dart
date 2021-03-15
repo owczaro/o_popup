@@ -16,10 +16,10 @@ class OPopupOverlay<T> extends PopupRoute<T> {
   final Widget content;
 
   /// Fill the barrier with this color.
-  final Color color;
+  final Color? color;
 
   /// The duration the transition going forwards and in reverse.
-  final Duration barrierAnimationDuration;
+  final Duration? barrierAnimationDuration;
 
   /// Whether you can dismiss this route by tapping the modal barrier.
   final bool dismissible;
@@ -28,18 +28,17 @@ class OPopupOverlay<T> extends PopupRoute<T> {
   /// If null, transition animation has Alignment(0, 0),
   /// so that transition going forwards/ in reverse
   /// goes from/into the center of a screen.
-  TapUpDetails tapDetails;
+  TapUpDetails? tapDetails;
 
   /// Creates an instance of [OPopupOverlay]
   OPopupOverlay({
-    this.dismissible = true,
+    required this.content,
     this.color,
     this.barrierAnimationDuration,
-    @required this.content,
     this.tapDetails,
-    RouteSettings setting,
-  })  : assert(content != null),
-        super(settings: setting);
+    this.dismissible = true,
+    RouteSettings? setting,
+  }) : super(settings: setting);
 
   @override
   bool get barrierDismissible => dismissible;
@@ -52,7 +51,7 @@ class OPopupOverlay<T> extends PopupRoute<T> {
       barrierAnimationDuration ?? const Duration(milliseconds: 200);
 
   @override
-  String get barrierLabel => null;
+  String? get barrierLabel => null;
 
   @override
   Widget buildPage(
@@ -82,7 +81,7 @@ class OPopupOverlay<T> extends PopupRoute<T> {
     var _alignment = Alignment(0, 0);
     if (tapDetails != null) {
       final _converter = CoordinatesToAlignment(
-        point: tapDetails.globalPosition,
+        point: tapDetails!.globalPosition,
         screenSize: MediaQuery.of(context).size,
       );
       _alignment = _converter.convert();

@@ -9,10 +9,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'o_popup demo app',
-      routes: {
-        '/': (BuildContext context) => MyHomePage(),
-      },
+      title: 'o_popup test app',
+      home: MyHomePage(),
     );
   }
 }
