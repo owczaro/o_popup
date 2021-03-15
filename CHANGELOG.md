@@ -1,4 +1,4 @@
-## [0.1.5] - 15th of March 2021
+## [1.0.0] - 15th of March 2021
 
 - Null safety support
 - Add more tests
